@@ -1,44 +1,45 @@
-README - TimeMachineAgentDelegate
----------------------------------
+# CodeTropics-Java-Agent-Timemachine
 
+**Forked from [Hapi/Java-Agent-Timemachine](https://github.com/Hapi/Java-Agent-Timemachine)**
 
-DESCRIPTION
------------
-'TimeMachineAgentDelegate' can be used to shift system time without touching the system
-clock.
+This fork brings the original TimeMachine Java Agent up to date with:
 
-The shift of system time can be relative or absolute. Relative system time shift means that
-some offset is added to or subtracted from the original system time value. Absolute system
-time shift means that original system time is always replaced by some absolute value. 
+- **Java 17+ compatibility**
+- **ASM 9.x support** (migrated from ASM 3.x)
+- Bug fixes, test improvements, and modern Maven configuration
 
+---
 
-REQUIREMENTS
-------------
-- Java 1.5 or later
-- com.hapiware.agent.Agent (see http://www.hapiware.com)
-- ASM 3.0 or newer (see http://asm.ow2.org/)
+## What is TimeMachine?
 
+_TimeMachine_ is a Java agent that enables JVM-based applications to simulate different system times at runtime—**without modifying the actual system clock**.
 
-LICENSE
--------
-MIT License
+It’s useful for:
+- Testing time-sensitive business logic
+- Simulating end-of-month, leap years, etc.
+- Batch processing, financial or legacy systems
+- Any scenario where you need to "travel in time" inside your Java app
 
-Copyright (c) 2010 Hapi, http://www.hapiware.com
+---
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## 🚀 Main changes in this fork
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+- **Modernized codebase**: Now uses Java 17 language features and ASM 9 APIs
+- **Cleaner Maven build**: Updated dependencies, plugin versions, and improved reliability on modern Java
+- **Time handling fixes**: Absolute and relative time shifts work with correct calendar and timezone logic
+- **Improved test suite**: Ported to JUnit 4.13, cleaned up old test cases
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+---
+
+## 📦 Requirements
+
+- Java 17 or later (tested with OpenJDK 17+)
+- ASM 9.x or newer (see [ASM project](https://asm.ow2.org/))
+- (If needed) The base agent: `com.hapiware.agent.Agent` ([Hapiware](http://www.hapiware.com))
+
+---
+
+## 🔧 Building
+
+```sh
+mvn clean package -Dmaven.javadoc.skip=true
